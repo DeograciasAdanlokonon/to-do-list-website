@@ -4,6 +4,7 @@ from sqlalchemy import Integer, String, Text, ForeignKey, Boolean, DateTime
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from datetime import datetime
+import os
 
 
 # CREATE DATABASE
@@ -42,7 +43,7 @@ class DataBase():
   """Initiate db"""
   def __init__(self, app):
     self.app = app
-    self.app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todos.db'
+    self.app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DB_URI', 'sqlite:///todos.db')
     db.init_app(self.app)
 
     with self.app.app_context():
