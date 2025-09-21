@@ -2,7 +2,7 @@ services:
   - type: web
     name: todo-list-app
     env: python
-    pythonVersion: 3.11
+    pythonVersion: 3.13.2
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn main:app
     envVars:
