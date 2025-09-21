@@ -39,7 +39,7 @@ class Task(db.Model):
   created_at: Mapped[str] = mapped_column(DateTime, default=datetime.now)
 
 
-class DataBase():
+class MyDataBase:
   """Initiate db"""
   def __init__(self, app):
     self.app = app

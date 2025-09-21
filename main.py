@@ -2,7 +2,7 @@ from flask import Flask, abort, render_template, redirect, url_for, flash
 from flask_bootstrap import Bootstrap5
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, login_required, LoginManager, current_user, logout_user
-from base import DataBase, db, User, Task
+from base import MyDataBase, db, User, Task
 from forms import RegisterForm, LoginForm, TaskForm, EditForm
 
 app = Flask(__name__)
@@ -21,7 +21,7 @@ def load_user(user_id):
   return db.get_or_404(User, user_id)
 
 # DataBase configuration
-database = DataBase(app=app)
+database = MyDataBase(app=app)
 
 #  ToDo: Register Route
 @app.route('/register', methods=['GET', 'POST'])
