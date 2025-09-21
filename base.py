@@ -44,7 +44,7 @@ class DataBase():
   def __init__(self, app):
     self.app = app
     self.app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv(
-            'DATABASE_URL', 'sqlite:///instance/todos.db'
+            'DATABASE_URL', 'sqlite:///todos.db'
         )
     self.app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db.init_app(self.app)
